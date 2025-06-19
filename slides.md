@@ -52,23 +52,28 @@ header {
 }
 </style>
 
+<!--
+Noch offen
+-->
+
 ----
 
 # Gliederung
 
 1. Einführung & Projektziel
 2. Systemübersicht
-3. Radar (AWR6843ISK)
-4. Datenverarbeitung und Aufbereitung (Pi Zero)
-5. Firmware (Pi Pico) evtl. 3D-Druck
-6. Visuelle Darstellung mit MemLCD
-7. Haptisches Feedback mit DRV2605L
+3. Radar
+4. Datenverarbeitung und Aufbereitung
+5. Firmware
+6. Visuelle Darstellung
+7. Haptisches Feedback
 8. Demo
 9. Fazit & Ausblick
 
 <!-- paginate: true -->
 
 <!--
+Noch offen
 -->
 
 ----
@@ -76,6 +81,7 @@ header {
 # Einführung & Projektziel
 
 <!--
+Noch offen
 -->
 
 ---- 
@@ -83,13 +89,15 @@ header {
 # Systemübersicht
 
 <!--
+Noch offen
 -->
 
 ----
 
-# Radar
+# Radar 
 
 <!--
+TI AWR6843ISK - Michael
 -->
 
 ----
@@ -97,27 +105,31 @@ header {
 # Datenverarbeitung & Aufbereitung
 
 <!--
+Raspberry Pi Zero W - Benedigt
 -->
 
 ----
  
-# Firmware (Pi Pico)
+# Firmware
 
 <!--
+Rasbperry Pi Pico 2 W - Leo
 -->
 
 ----
 
-# Visuelle Darstellung (MemLCD)
+# Visuelle Darstellung 
 
 <!--
+MemLCD - Markus
 -->
 
 ----
 
-# Haptisches Feedback mit DRV2605L
+# Haptisches Feedback
 
 <!--
+DRV2605L & Titan-Haptics TacHommer-Carlton - Chris
 -->
 
 ----
@@ -125,6 +137,7 @@ header {
 # Demo
  
 <!--
+Noch offen
 -->
 
 ----
@@ -132,6 +145,7 @@ header {
 # Fazit & Ausblick
 
 <!--
+Noch offen
 -->
 
 ----
