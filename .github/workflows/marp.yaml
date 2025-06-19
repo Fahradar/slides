@@ -41,7 +41,7 @@ jobs:
         run: rm -r fahradar.pdf
 
       - name: Upload index.html for gh pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
