@@ -31,8 +31,8 @@ jobs:
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: slides-pdf
-          path: slides.pdf
+          name: fahradar-pdf
+          path: fahradar.pdf
           retention-days: 7
 
       - name: Delete PDF
