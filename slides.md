@@ -105,6 +105,14 @@ Noch offen
  
 # Systemübersicht
 
+![system-overview.svg](./assets/system-overview.svg)
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
+
 <!--
 Noch offen
 -->
