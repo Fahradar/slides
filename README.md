@@ -1,21 +1,26 @@
-# Präsentationsfolien 
+# Analyse von Gefahrengut in Stammdaten
+ 
+Kurs: ERP-Systeme, Hochschule Heilbronn
 
-Marp benötigt [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) um die Präsentationsfolien zu bauen.
-Das Command zum bauen ist im Makefile integriert.
+> [!NOTE]  
+> Die Analyse der Stammdaten wurde in einem Jupyter Notebook umgesetzt.
 
-Bauen der Präsentationsfolien `make`:
-```sh
-make
+## How-To
+
+1. Stammdaten in Ordner `data` als `stammdaten.xslx` ablegen.
+2. Jupyter Server im repo ausführen:
 ```
-
-Präsentationsfolien als `.pdf`:
-```sh
-make pdf
+jupyter notebook`
 ```
+3. Notebook `stammdaten_gg.ipynb` öffnen.
 
-Beides (PDF & HTML):
-```sh
-make pdf slides
-```
+## Folien
 
-Für Lokale Verwendung der Präsentation einfach `slides.html` im Browser öffnen.
+Präsentationsfolien: https://ckiri.github.io/gg
+
+Info zum Erstellen der Präsentationsfolien: [Slides README](./docs/slides/README.md)
+
+## Autoren
+
+* [Chris Kiriakou](https://github.com/ckiri)
+* [Skinny2905](https://github.com/Skinny2905)
