@@ -37,7 +37,7 @@ style: |
  
 Embedded Systems
 
-Markus Busch, Chris Kiriakou, Michael Koscheck, Benedigt Müssig, Leonidas Zissis
+Markus Busch, Chris Kiriakou, Michael Koscheck, Benedikt Müssig, Leonidas Zissis
 
 <style scoped>
 h1 {
@@ -130,7 +130,7 @@ TI AWR6843ISK - Michael
 # Datenverarbeitung & Aufbereitung
 
 <!--
-Raspberry Pi Zero W - Benedigt
+Raspberry Pi Zero W - Benedikt
 -->
 
 ----
