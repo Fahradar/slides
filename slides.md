@@ -105,7 +105,7 @@ Noch offen
  
 # Systemübersicht
 
-![system-overview.svg](./assets/system-overview.svg)
+![Systemübersicht](./assets/system-overview.svg)
 
 <style scoped>
 p {
