@@ -173,11 +173,92 @@ Raspberry Pi Zero W - Benedikt
 
 ----
  
-# Firmware
 
+# Firmware - Raspberry Pi Pico 2 W
 <!--
 Rasbperry Pi Pico 2 W - Leo
 -->
+
+**Zentrale Steuereinheit des Systems**
+
+- Empfängt aufbereitete Radar-Daten über USB
+- Kein Radar-Processing → reine Koordination
+- Verteilt Daten an Ausgabegeräte (Display & Haptik)
+
+**Datenfluss:**
+```
+Radar → Verarbeitung → USB → Pi Pico → Ausgabegeräte
+```
+
+<!--
+Leo - 2.5 Min Firmware Präsentation
+-->
+
+----
+
+# Software-Architektur
+
+<div class="columns">
+<div>
+
+**Hauptschleife:**
+```c
+while(1) {
+    usbcom_routine();        // USB-Daten empfangen
+    gui_routine();           // An Display weiterleiten
+    if (objects > 0) {
+        haptics_routine();   // An Haptik weiterleiten
+    }
+}
+```
+
+**Empfangene Objektdaten:**
+```c
+typedef struct {
+    float y;         // Entfernung [m]
+    float x[2];      // Position [m] 
+    float speed;     // Geschwindigkeit
+    uint32_t id;     // Eindeutige ID
+} object_t;
+```
+
+</div>
+<div>
+
+**Modulare Firmware:**
+- `controller.c` - Koordinator
+- `usbcom.c` - USB-Kommunikation
+- `gui.c` - Display-Interface
+- `haptics.c` - Haptik-Interface
+
+**Performance:**
+- 10 Hz Update-Rate
+- Non-blocking USB
+- Echtzeit-Datenverteilung
+
+</div>
+</div>
+
+----
+
+# Technische Umsetzung
+
+**USB-Kommunikation:**
+- Meldet sich als serielles CDC-Gerät an
+- Parst eingehende Objektlisten
+- Non-blocking für Echtzeit-Performance
+
+**Datenverarbeitung:**
+- Nimmt komplette Objektliste entgegen
+- Leitet alle Objekte an Display weiter
+- Wählt nächstes Objekt für Haptik aus
+
+**Modulares Design:**
+- Klare Trennung der Verantwortlichkeiten
+- Einfache Erweiterung um neue Ausgabegeräte
+- Wartbarer, strukturierter Code
+
+**→ Effizienter Koordinator zwischen Radar-System und Benutzer-Interface**
 
 ----
 
