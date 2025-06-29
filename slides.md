@@ -77,23 +77,6 @@ Noch offen
 
 ----
 
-# Gliederung
-
-1. Einführung & Projektziel
-2. Systemübersicht
-3. Radar
-4. Datenverarbeitung und Aufbereitung
-5. Firmware
-6. Visuelle Darstellung
-7. Haptisches Feedback
-8. Demo
-
-<!--
-Noch offen
--->
-
-----
-
 # Einführung & Projektziel
 
 Ziel: Fahrradfahrer\*innen sicher von A nach B bringen
