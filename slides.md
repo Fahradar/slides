@@ -9,12 +9,6 @@ style: |
   code {
     font-size: 14px;
   }
-  h1 {
-    font-size: 35px;
-  }
-  h2 {
-    font-size: 25px;
-  }
   li, p, td, th {
     font-size: 20px;
   }
@@ -97,6 +91,14 @@ Noch offen
 
 # Einführung & Projektziel
 
+Ziel: Fahrradfahrer\*innen sicher von A nach B bringen
+
+> Fahrradfahrer\*in wird durch ein wahrnehmbares Signal aufmerksam auf potenzielle Gefahr gemacht. Und kann dadurch rechtzeit reagieren.
+
+**Warnmethoden**
+- Visuell: Kleines bei Gegenlicht ablesbares Sharp Memory Display am Lenker.
+- Haptisch: Vibrationsmotor für diskrete Warnungen direkt am Griff.
+
 <!--
 Noch offen
 -->
@@ -153,20 +155,25 @@ MemLCD - Markus
 
 # Haptisches Feedback
 
-**DRV2605L Treiber**,
-**Titan-Haptics Carlton**,
+**DRV2605L Treiber**
+**Titan-Haptics Carlton**
 **Wellengenerierung**
 
-![bg right:50% auto blur:5px](https://titanhaptics.com/wp-content/uploads/2024/01/LMR-1.gif)
+<!--![bg right:50% auto blur:5px](https://titanhaptics.com/wp-content/uploads/2024/01/LMR-1.gif)-->
+
+<style scoped>
+h1, p {
+    text-align: center;
+}
+</style>
 
 ----
 
-# DRV2605L & Titan-Haptics Carlton
+# Haptik ─ DRV2605L & Titan-Haptics Carlton
 
 <div class="columns">
 <div>
 
-**DRV2605L**:
 - Haptischer Feedback Treiber für LRA & ERM
 - Implementierung einer Bibliothek für Abstraktion der Low-Level-Funktionen
 
@@ -185,7 +192,8 @@ void drv2605l_stop(drv2605l_t *drv);
 void drv2605l_rtp(drv2605l_t *drv, uint8_t rtp);
 ```
 
-`bool drv2605l_init(drv2605l_t *drv)`:
+`bool drv2605l_init(drv2605l_t *drv)`
+
 - Kalibrierungsfunktion für Closed-Loop (Autocalibration-Routine schlägt fehl!)
 - Frequenzbereiche **nicht** optimal! (150Hz - 300Hz)
 - Setupfunktion für Open-Loop: $f_{min}$ = 80Hz
@@ -193,7 +201,6 @@ void drv2605l_rtp(drv2605l_t *drv, uint8_t rtp);
 </div>
 <div>
 
-**Titan-Haptics Carlton**:
 - LRA mit Beschleunigung von 5G bei 80Hz
 - Betriebsspannung: 3.6 bis 10 Vp-p
 
@@ -203,16 +210,23 @@ void drv2605l_rtp(drv2605l_t *drv, uint8_t rtp);
 | Traditional | "Puls" haptisches Feedback, geräuschlos |
 
 - **Haptisches Feedback**: (Rechteck $>$ Sinus)
-- Mechanorezeptoren nehmen **starke** Veränderungen wahr
+- Mechanorezeptoren reagieren auf **starke** Veränderungen<sup>[1]</sup>:
 
 ![height:200px](./assets/haptic/wave-effect-mechano.png)
 
 </div>
 </div>
 
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
+
 ----
 
-# Generierung Wellenformen 
+# Haptik ─ Wellengenerierung
 
 ![bg vertical right:37% height:73%](./assets/haptic/wave-sim-slow-mid.png)
 ![bg right:37% height:73%](./assets/haptic/wave-sim-mid-mid.png)
@@ -245,6 +259,11 @@ for (int i = 0; i < sample_count; ++i) {
 }
 ```
 
+<style scoped>
+h1 {
+    font-size: 35px;
+</style>
+
 <!--
 DRV2605L & Titan-Haptics TacHommer-Carlton - Chris
 -->
@@ -267,15 +286,26 @@ Noch offen
 
 ----
 
+# Repository & Organisation
+
+Raspberry Pi Pico 2W Firmware [https://github.com/Fahradar/controller](https://github.com/Fahradar/controller)
+Treiber Bibliothek Sharp Memory Display [https://github.com/Fahradar/memlcd](https://github.com/Fahradar/memlcd)
+Treiber Bibliothek Haptisches Feedback DRV2605L [https://github.com/Fahradar/drv2605l](https://github.com/Fahradar/drv2605l)
+Interface Applikation für Raspberry Pi Zero W  [https://github.com/Fahradar/awrirgendwas](https://github.com/Fahradar/awrirgendwas)
+CAD Teile & 3D-Druck [https://github.com/Fahradar/CAD](https://github.com/Fahradar/CAD)
+Wellenformvisualisierung [https://github.com/Fahradar/waveform](https://github.com/Fahradar/waveform)
+Projektorganisation [https://github.com/orgs/Fahradar/projects/1](https://github.com/orgs/Fahradar/projects/1)
+
 # Quellen
-- IEEE auswirkungen von Wellen 
+
+[1] Y. Vardar, B. Güçlü and C. Basdogan, "Effect of Waveform on Tactile Perception by Electrovibration Displayed on Touch Screens," in IEEE Transactions on Haptics, vol. 10, no. 4, pp. 488-499, 1 Oct.-Dec. 2017, doi: 10.1109/TOH.2017.2704603.
 
 <!--
 Bitte fehlende Quellen hinzufügen
 -->
  
 <style scoped>
-li {
+p, li {
     font-size: 14px;
 }
 </style>
