@@ -344,9 +344,9 @@ void generate_waveform(float x[2], float y, float speed, waveform_t *waveform_ou
   - Abstand $[m]$ `y` $\mapsto$ Amplitude, Anzahl der Sample (20 - 40)
   - Geschwindigkeit $[km/h]$ `speed` $\mapsto$ Steigung
 
-**Modifikation der Sigmoidfunktion (Logitische Funktion)**:
+**Modifikation der Sigmoidfunktion (Logistische Funktion)**:
 
-$\sigma(x) = \frac{1}{1 + e^{-x}}$ $\longrightarrow$ $\sigma(t) = \frac{1}{1 + e^{-k(t-0.5)}}$
+$\sigma(x) = \frac{1}{1 + e^{-x}}$ $\longrightarrow$ $\sigma(t;k) = \frac{1}{1 + e^{-k(t-0.5)}}$
 
 ```c
 for (int i = 0; i < sample_count; i++) {
@@ -370,6 +370,16 @@ DRV2605L & Titan-Haptics TacHommer-Carlton - Chris
 ----
 
 # Demo
+
+
+<style scoped>
+h1 {
+    font-size: 80px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+</style>
  
 <!--
 Benedikt
