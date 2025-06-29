@@ -257,17 +257,15 @@ void generate_waveform(float x[2], float y, float speed, waveform_t *waveform_ou
 ```
 
 **Abhängikeit der Eingabeparameter**:
-  - Boundingbox $[m]$ `x` $\rightarrow$ Amplitudenfaktor jeweiliger Seite:
+  - Boundingbox $[m]$ `x` $\mapsto$ Amplitudenfaktor jeweiliger Seite:
       - `x[0]`: Linke Grenze
       - `x[1]`: Rechte Grenze
-  - Abstand $[m]$ `y` $\rightarrow$ Amplitude, Anzahl der Sample (20 - 40)
-  - Geschwindigkeit $[km/h]$ `speed` $\rightarrow$ Steigung
+  - Abstand $[m]$ `y` $\mapsto$ Amplitude, Anzahl der Sample (20 - 40)
+  - Geschwindigkeit $[km/h]$ `speed` $\mapsto$ Steigung
 
-**Stauchen und Strecken der Sigmoid Funktion**:
-```c
-float speed_norm = (speed_clamped - 1.0f) / (60.0f - 1.0f);
-float k = 2.0f * powf(10.0f, speed_norm * 2.0f);            // steepness 2–200
-```
+**Modifikation der Sigmoidfunktion (Logitische Funktion)**:
+
+$\sigma(x) = \frac{1}{1 + e^{-x}}$ $\longrightarrow$ $\sigma(t) = \frac{1}{1 + e^{-k(t-0.5)}}$
 
 ```c
 for (int i = 0; i < sample_count; ++i) {
@@ -300,7 +298,7 @@ Benedikt
 
 # Quellen
 
-- Y. Vardar, B. Güçlü and C. Basdogan, "Effect of Waveform on Tactile Perception by Electrovibration Displayed on Touch Screens," in IEEE Transactions on Haptics, vol. 10, no. 4, pp. 488-499, 1 Oct.-Dec. 2017, doi: 10.1109/TOH.2017.2704603.
+- [1] Y. Vardar, B. Güçlü and C. Basdogan, "Effect of Waveform on Tactile Perception by Electrovibration Displayed on Touch Screens," in IEEE Transactions on Haptics, vol. 10, no. 4, pp. 488-499, 1 Oct.-Dec. 2017, doi: 10.1109/TOH.2017.2704603.
 - TI: AWR6843ISK Data Sheet, SWRU546E (2018, REV. 2022)
 - TI: AWR6843 User Guide, SWRS248E (2020, REV. 2025)
 - TI: MMWAVE SDK User Guide (3.6 LTS, 2021)
