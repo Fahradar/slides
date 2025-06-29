@@ -268,7 +268,7 @@ void generate_waveform(float x[2], float y, float speed, waveform_t *waveform_ou
 $\sigma(x) = \frac{1}{1 + e^{-x}}$ $\longrightarrow$ $\sigma(t) = \frac{1}{1 + e^{-k(t-0.5)}}$
 
 ```c
-for (int i = 0; i < sample_count; ++i) {
+for (int i = 0; i < sample_count; i++) {
     float time = (float)i / (sample_count - 1);             // normalize time [0, 1]
     float slope = 1.0f / (1.0f + expf(-k * (time - 0.5f))); // sigmoid function
     float left = left_factor * slope;
