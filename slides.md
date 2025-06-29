@@ -344,7 +344,7 @@ void generate_waveform(float x[2], float y, float speed, waveform_t *waveform_ou
   - Abstand $[m]$ `y` $\mapsto$ Amplitude, Anzahl der Sample (20 - 40)
   - Geschwindigkeit $[km/h]$ `speed` $\mapsto$ Steigung
 
-**Modifikation der Sigmoidfunktion (Logitische Funktion)**:
+**Modifikation der Sigmoidfunktion (Logistische Funktion)**:
 
 $\sigma(x) = \frac{1}{1 + e^{-x}}$ $\longrightarrow$ $\sigma(t) = \frac{1}{1 + e^{-k(t-0.5)}}$
 
