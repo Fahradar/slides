@@ -1,4 +1,6 @@
 ----
+
+marp: true
 math: katex
 header: Fahradar | Embedded-Systems | Busch, Kiriakou, Koscheck, Müssig, Zissis
 paginate: false
@@ -22,7 +24,11 @@ style: |
   .columns > div {
     flex: 1 1 0;
   }
-
+  .right-align {
+    margin-right: 10px;
+    text-align: right;
+  }
+  
 ----
 
 # Fahradar
@@ -81,7 +87,6 @@ Noch offen
 6. Visuelle Darstellung
 7. Haptisches Feedback
 8. Demo
-9. Fazit & Ausblick
 
 <!--
 Noch offen
@@ -107,7 +112,7 @@ Noch offen
  
 # Systemübersicht
 
-![Systemübersicht](./assets/system-overview.svg)
+![height:500px](./assets/system-overview.png)
 
 <style scoped>
 p {
@@ -121,7 +126,55 @@ Noch offen
 
 ----
 
-# Radar 
+# Grundprinzip Radar
+
+Radar - **Ra**dio **D**etection **a**nd **R**anging
+
+![bg vertical right:37% height:200px](./assets/radar/a-t_chirp.png)
+
+![bg vertical right:37% width:450px](./assets/radar/IF_sinusoid.png)
+
+![bg vertical right:37% height:150px](./assets/radar/IF_frequency_spectrum.png)
+
+**Ablauf:**
+1. **Senden**: Ausstrahlen eines Signals (Chirp)
+2. **Reflexion & Empfangen**: Impuls/Echo wird teils zurückgestreut & empfangen
+3. **Auswerten**: Peaks zu Objekten mit x,y,(z) und Geschwindigkeit
+
+**Distanz**: Zeit bis Empfangen des Echos
+**Geschwindigkeit**: Versatz der Phase zwischen 2 Chirps
+**Azimuth**: Versatz der Phase zwischen 2 Antennen
+
+----
+
+# Aufbau eines Radars - Unser Radar
+
+![height:500px](./assets/radar/blockdiagramm.png)
+
+----
+
+# Allgemeine Berechnungen
+
+![height:300px](./assets/radar/chirp_diagram.png)
+
+| Ziel       | $S$ | $f_s$ | $N_{samples}$ | $N_{chirps}$ | $T_{ramp}$ | $T_{idle}$ | $T_{ADC Start}$ | $B$ |
+|------------|-----|-------|---------------|--------------|------------|------------|-----------------|-----|
+| $d_{max}$  | ↓   | ↑     |               |              |            |            |                 |     |
+| $v_{max}$  | ↓   | ↑     | ↓             |              | ↓          | ↓          | ↓               | ↓   |
+| $\Delta d$ | ↑   | ↓     | ↑             |              |            |            |                 |     |
+| $\Delta v$ |     |       |               | ↑            | ↑          | ↑          |                 | ↑   |
+
+----
+
+# Techniken aufgrund Anforderungen
+- **Advanced Subframes** mit Bursts
+  - **Beamforming**: Erzeugung Beam durch konstruktiver Interferenz mehrer Antennen
+  - Schmal wegen destruktiver Interferenz
+    - **Beamsteering**: gezielte Ausrichtung des Radarbeams durch Phasenverschiebung
+- **MIMO** (Multiple Input Multiple Output): mehrere Sende- und Empfangsantennen für bessere Auflösung
+- **CFAR** (Constant False Alarm Rate): automatische Schwellenwertanpassung zur Objekterkennung
+- **Tracker**: Objektpersistenz und Punktwolken-Gruppierungen
+![bg right height:500px](./assets/radar/beamsteering.png)
 
 <!--
 TI AWR6843ISK - Michael
@@ -150,22 +203,6 @@ Rasbperry Pi Pico 2 W - Leo
 <!--
 MemLCD - Markus
 -->
-
-----
-
-# Haptisches Feedback
-
-**DRV2605L Treiber**
-**Titan-Haptics Carlton**
-**Wellengenerierung**
-
-<!--![bg right:50% auto blur:5px](https://titanhaptics.com/wp-content/uploads/2024/01/LMR-1.gif)-->
-
-<style scoped>
-h1, p {
-    text-align: center;
-}
-</style>
 
 ----
 
@@ -273,32 +310,33 @@ DRV2605L & Titan-Haptics TacHommer-Carlton - Chris
 # Demo
  
 <!--
-Noch offen
+Benedikt
 -->
 
 ----
-
-# Fazit & Ausblick
-
-<!--
-Noch offen
--->
-
-----
-
-# Repository & Organisation
-
-Raspberry Pi Pico 2W Firmware [https://github.com/Fahradar/controller](https://github.com/Fahradar/controller)
-Treiber Bibliothek Sharp Memory Display [https://github.com/Fahradar/memlcd](https://github.com/Fahradar/memlcd)
-Treiber Bibliothek Haptisches Feedback DRV2605L [https://github.com/Fahradar/drv2605l](https://github.com/Fahradar/drv2605l)
-Interface Applikation für Raspberry Pi Zero W  [https://github.com/Fahradar/awrirgendwas](https://github.com/Fahradar/awrirgendwas)
-CAD Teile & 3D-Druck [https://github.com/Fahradar/CAD](https://github.com/Fahradar/CAD)
-Wellenformvisualisierung [https://github.com/Fahradar/waveform](https://github.com/Fahradar/waveform)
-Projektorganisation [https://github.com/orgs/Fahradar/projects/1](https://github.com/orgs/Fahradar/projects/1)
 
 # Quellen
 
-[1] Y. Vardar, B. Güçlü and C. Basdogan, "Effect of Waveform on Tactile Perception by Electrovibration Displayed on Touch Screens," in IEEE Transactions on Haptics, vol. 10, no. 4, pp. 488-499, 1 Oct.-Dec. 2017, doi: 10.1109/TOH.2017.2704603.
+- Y. Vardar, B. Güçlü and C. Basdogan, "Effect of Waveform on Tactile Perception by Electrovibration Displayed on Touch Screens," in IEEE Transactions on Haptics, vol. 10, no. 4, pp. 488-499, 1 Oct.-Dec. 2017, doi: 10.1109/TOH.2017.2704603.
+- TI: AWR6843ISK Data Sheet, SWRU546E (2018, REV. 2022)
+- TI: AWR6843 User Guide, SWRS248E (2020, REV. 2025)
+- TI: MMWAVE SDK User Guide (3.6 LTS, 2021)
+- TI: Introduction to mmwave Sensing: FMCW Radars
+- TI: Beamforming in LRPD
+- TI: mmWave Radar Interface Control
+- TI: Long Range People Detection User Guide
+- TI: People Counting CUstomization User Guide
+- TI: Digital Baseband Architecture in AWR1xxx Devices
+- TI: Object Detection Data-path Processing Chain (DPC)
+- TI: Using a complex-baseband architecture in FMCW  radar systems, SPYY007 (Karthik Ramasubramanian)
+- TI: Programming Chirp Parameters in TI Radar Devices, SWRA553A (2017, REV. 2020)
+- G. Brooker, “Understanding Millimetre Wave FMCW Radars,” 1st International Conference On Sensing Technology, November 2005, New Zealand
+
+# Tools
+
+- TI Demo Visualizer
+- TI Industrial Visualizer
+- TI mmWave Sensing Estimator
 
 <!--
 Bitte fehlende Quellen hinzufügen
@@ -307,5 +345,8 @@ Bitte fehlende Quellen hinzufügen
 <style scoped>
 p, li {
     font-size: 14px;
+}
+h1 {
+    font-size: 25px;
 }
 </style>
