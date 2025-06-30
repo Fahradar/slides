@@ -130,7 +130,6 @@ Radar - **Ra**dio **D**etection **a**nd **R**anging
 
 ----
 
-
 # Chirps unter der Lupe
 
 ![height:400px](./assets/radar/chirp_diagram.png)
@@ -194,9 +193,11 @@ p {
 TI AWR6843ISK - Michael
 -->
 
+
 ----
 
 # Datenverarbeitung & Aufbereitung
+ 
 <div class="columns">
 <div>
 
@@ -211,6 +212,22 @@ TI AWR6843ISK - Michael
 </div>
 <div>
   
+
+</div>
+</div>
+
+<!--
+Raspberry Pi Zero W - Benedikt
+-->
+
+----
+
+
+# Datenverarbeitung & Aufbereitung
+
+<div class="columns">
+<div>
+
 - Schreiben der Radarkonfigurationsparameter
 - Synchronisieren zum Radardatenstrom
 - Einlesen, Verarbeiten und Visualisieren der TLVs
@@ -223,14 +240,20 @@ TI AWR6843ISK - Michael
     - Synchroniesierung, TLV-Format, CRC16
 
 </div>
+<div>
+
+![height:500px](./assets/zero/flowchart-awrpi.png)
+
+</div>
 </div>
 
-<!--
-Raspberry Pi Zero W - Benedikt
--->
-
-----
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
  
+----
 
 # Firmware ─ Raspberry Pi Pico 2 W
 
