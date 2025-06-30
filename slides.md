@@ -142,9 +142,11 @@ p {
 
 ----
 
+<!--
+
 # Allgemeine Berechnungen
 
-![height:300px](./assets/radar/chirp_diagram.png)
+![height:250px](./assets/radar/chirp_diagram.png)
 
 | Ziel       | $S$ | $f_s$ | $N_{samples}$ | $N_{chirps}$ | $T_{ramp}$ | $T_{idle}$ | $T_{ADC Start}$ | $B$ |
 |------------|-----|-------|---------------|--------------|------------|------------|-----------------|-----|
@@ -154,6 +156,8 @@ p {
 | $\Delta v$ |     |       |               | ↑            | ↑          | ↑          |                 | ↑   |
 
 ----
+
+-->
 
 # Techniken aufgrund Anforderungen
 - **Advanced Subframes** mit Bursts
@@ -165,6 +169,17 @@ p {
 - **Tracker**: Objektpersistenz und Punktwolken-Gruppierungen
 
 ![bg right height:500px](./assets/radar/beamsteering.png)
+
+
+----
+
+![height:600px center](./assets/radar/radar_viz.gif)
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
 
 <!--
 TI AWR6843ISK - Michael
