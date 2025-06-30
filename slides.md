@@ -33,7 +33,7 @@ style: |
 
 # Fahradar
  
-## *Sicher von A nach B*
+## *Sicher und unfallfrei von A nach B*
  
 Embedded Systems
 
@@ -204,6 +204,14 @@ TI AWR6843ISK - Michael
   - Automatisches endloses Wiederholen möglich
 - Erkennung des Radars und Picos (automatische Erkennung der drei Serialports)
 
+</div>
+<div>
+  
+  ![height:500px](./assets/zero/serialports-awrpi.png)
+
+</div>
+</div>
+
 <!--
 Raspberry Pi Zero W - Benedikt
 -->
@@ -275,12 +283,13 @@ Leo - 2.5 Min Firmware Präsentation
 
 **Hauptschleife:**
 ```c
-while(1) {
-    usbcom_routine();        // USB-Daten empfangen
-    gui_routine();           // An Display weiterleiten
-    if (objects > 0) {
-        haptics_routine();   // An Haptik weiterleiten
-    }
+int num_objects = 0;
+struct usbcom_data object_data;
+while (1) {
+    num_objects = usbcom_routine(&object_data); // USB-Daten empfangen
+    gui_routine(object_data.objs, num_objects); // Auf Display rendern
+    // Wichtigsten Punkt haptisch wiedergeben
+    haptics_routine(num_objects > 0 ? &object_data.objs[0] : NULL);
 }
 ```
 
@@ -304,8 +313,8 @@ typedef struct {
 - `haptics.c` - Haptik-Interface
 
 **Performance:**
-- 10 Hz Update-Rate
-- Non-blocking USB
+- ca. 10 Hz Update-Rate
+- Blocking USB-CDC
 - Echtzeit-Datenverteilung
 
 </div>
@@ -321,7 +330,7 @@ typedef struct {
 **USB-Kommunikation:**
 - Meldet sich als serielles CDC-Gerät an
 - Parst eingehende Objektlisten
-- Non-blocking für Echtzeit-Performance
+- Blockierende I/O
 
 **Datenverarbeitung:**
 - Nimmt komplette Objektliste entgegen
@@ -361,9 +370,10 @@ p {
 <div class="columns">
 <div>
 
+- Bei der Initialisierung werden Gridlinien auf die Invertierungsebene gezeichnet
 - `gui_routine` aktualisiert grafische Benutzeroberfläche in regelmäßigen Abständen basierend auf Zeitstempel
 - Check ob Aktualisierung fällig ist, und verlässt die Funktion vorzeitig, wenn nicht der Fall
-- Bildschirm wird mit `memlcd_clear` gelöscht, bevor neue Objekte gezeichnet werden
+- Bildschirm (ohne Invertierungsebene) wird mit `memlcd_clear` gelöscht, bevor neue Objekte gezeichnet werden
 - Für jedes Obj. werden Pos., Breite und Höhe eines Rechtecks berechnet und auf dem Display sw Balken dargestellt
 - Die Höhe des Rechtecks hängt von der Geschw. des Objekts ab, wodurch eine visuelle Repräsentation der Bewegungsgeschwindigkeit entsteht.
 
