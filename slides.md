@@ -77,7 +77,7 @@ Noch offen
 
 ---- 
 
-![height:100%](./intro.gif)
+![height:100%](./assets/intro.gif)
 
 <style scoped>
 p {
