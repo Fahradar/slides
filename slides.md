@@ -197,16 +197,32 @@ TI AWR6843ISK - Michael
 ----
 
 # Datenverarbeitung & Aufbereitung
+<div class="columns">
+<div>
 
-- Radar-Pico Bridge auf Pi Zero
-- Konfiguration des Radars (Porterkennung)
-- TLV-Verarbeitung + Visualisierung
-- Scoring, Filterung der Objekte
-- Weiterleitung an Pico
-- Betriebsmodi
-  - Live
-  - Replay
+- Pi Zero als Brücke zwischen Radar und Pi Pico
+- Verarbeitet Radardaten in Echtzeit
+- Kann Daten aufzeichnen und später wieder mit einstellbarer Frequenz abspielen
+  - Erlaubt einfaches Testen, da Radar nicht erforderlich
+  - Aufzeichnungen können über das Internet ausgetauscht werden
+  - Automatisches endloses Wiederholen möglich
+- Erkennung des Radars und Picos (automatische Erkennung der drei Serialports)
 
+</div>
+<div>
+  
+- Schreiben der Radarkonfigurationsparameter
+- Synchronisieren zum Radardatenstrom
+- Einlesen, Verarbeiten und Visualisieren der TLVs
+  - TUI-Anzeige im Terminal möglich
+- Scoring, Sortierung und Filterung der erkannten Objekte
+    - Score aus Geschwindigkeit (m/s) und 10/Abstand (m)
+    - Absteigende Sortierung (höchstes Element ist das Kritischte)
+- Paketierte Weiterleitung an Pico
+    - Synchroniesierung, TLV-Format, CRC16
+
+</div>
+</div>
 
 <!--
 Raspberry Pi Zero W - Benedikt
