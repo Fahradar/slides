@@ -26,13 +26,13 @@ jobs:
         run: marp slides.md --html --output index.html
 
       - name: Convert markdown to pdf
-        run: marp slides.md --pdf --output fahradar.pdf
+        run: marp slides.md --allow-local-files --pdf --output fahradar.pdf
 
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
           name: fahradar-slides
-          path: fahradar.pdf
+          path: fahradar-slides.pdf
           retention-days: 7
 
       - name: Delete PDF
