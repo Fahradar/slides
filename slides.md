@@ -130,6 +130,32 @@ Radar - **Ra**dio **D**etection **a**nd **R**anging
 
 ----
 
+
+# Chirps unter der Lupe
+
+![height:400px](./assets/radar/chirp_diagram.png)
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
+
+<!--
+
+| Ziel       | $S$ | $f_s$ | $N_{samples}$ | $N_{chirps}$ | $T_{ramp}$ | $T_{idle}$ | $T_{ADC Start}$ | $B$ |
+|------------|-----|-------|---------------|--------------|------------|------------|-----------------|-----|
+| $d_{max}$  | ↓   | ↑     |               |              |            |            |                 |     |
+| $v_{max}$  | ↓   | ↑     | ↓             |              | ↓          | ↓          | ↓               | ↓   |
+| $\Delta d$ | ↑   | ↓     | ↑             |              |            |            |                 |     |
+| $\Delta v$ |     |       |               | ↑            | ↑          | ↑          |                 | ↑   |
+
+
+
+-->
+
+----
+
 # Aufbau eines Radars ─ Unser Radar
 
 ![height:500px](./assets/radar/blockdiagramm.png)
@@ -141,23 +167,6 @@ p {
 </style>
 
 ----
-
-<!--
-
-# Allgemeine Berechnungen
-
-![height:250px](./assets/radar/chirp_diagram.png)
-
-| Ziel       | $S$ | $f_s$ | $N_{samples}$ | $N_{chirps}$ | $T_{ramp}$ | $T_{idle}$ | $T_{ADC Start}$ | $B$ |
-|------------|-----|-------|---------------|--------------|------------|------------|-----------------|-----|
-| $d_{max}$  | ↓   | ↑     |               |              |            |            |                 |     |
-| $v_{max}$  | ↓   | ↑     | ↓             |              | ↓          | ↓          | ↓               | ↓   |
-| $\Delta d$ | ↑   | ↓     | ↑             |              |            |            |                 |     |
-| $\Delta v$ |     |       |               | ↑            | ↑          | ↑          |                 | ↑   |
-
-----
-
--->
 
 # Techniken aufgrund Anforderungen
 - **Advanced Subframes** mit Bursts
@@ -173,7 +182,7 @@ p {
 
 ----
 
-![height:600px center](./assets/radar/radar_viz.gif)
+<video src="./assets/radar/radar_viz.mp4" height="600" style="display:block;margin:auto;" controls></video>
 
 <style scoped>
 p {
