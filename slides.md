@@ -317,6 +317,47 @@ typedef struct {
 
 # Visuelle Darstellung ─ MemLCD 
 
+<div class="columns">
+<div>
+
+- `gui_routine` aktualisiert grafische Benutzeroberfläche in regelmäßigen Abständen basierend auf Zeitstempel
+- Check ob Aktualisierung fällig ist, und verlässt die Funktion vorzeitig, wenn nicht der Fall
+- Bildschirm wird mit `memlcd_clear` gelöscht, bevor neue Objekte gezeichnet werden
+- Für jedes Obj. werden Pos., Breite und Höhe eines Rechtecks berechnet und auf dem Display sw Balken dargestellt
+- Die Höhe des Rechtecks hängt von der Geschw. des Objekts ab, wodurch eine visuelle Repräsentation der Bewegungsgeschwindigkeit entsteht.
+
+</div>
+<div>
+
+```c
+void gui_routine(object_t *objs, int num_objs) {
+    uint64_t cur_time = time_us_64();
+    if (gui_next_update > cur_time)
+        return;
+
+    gui_next_update = cur_time + (GUI_UPDATE_INTERVAL_US);
+
+    memlcd_clear(MEMLCD_WHITE, false);
+    for (int obj_idx = 0; obj_idx < num_objs; obj_idx++) {
+        int x = (int)(objs[obj_idx].x[0]*SCALE_X)+CENTER_H;
+        int w = abs((int)(objs[obj_idx].x[1]*SCALE_X)+CENTER_H - x);
+        if (w < 5)
+            w = 5;
+        int y = (int)(objs[obj_idx].y*SCALE_Y)+15;
+        int s = (int)sqrtf(objs[obj_idx].speed);
+        if (s < 5)
+            s = 5;
+
+        memlcd_fill_rect(x, y, w, s, MEMLCD_BLACK);
+    }
+    memlcd_update();
+}
+```
+
+</div>
+</div>
+
+
 <!--
 MemLCD - Markus
 -->
