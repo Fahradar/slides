@@ -215,7 +215,8 @@ TI AWR6843ISK - Michael
 - Synchronisieren zum Radardatenstrom
 - Einlesen, Verarbeiten und Visualisieren der TLVs
   - TUI-Anzeige im Terminal möglich
-- Scoring, Sortierung und Filterung der erkannten Objekte
+- Filterung, Scoring und Sortierung der erkannten Objekte
+    - Herausfiltern von Objekten, die sich in Gegenrichtung bewegen
     - Score aus Geschwindigkeit (m/s) und 10/Abstand (m)
     - Absteigende Sortierung (höchstes Element ist das Kritischte)
 - Paketierte Weiterleitung an Pico
