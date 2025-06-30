@@ -178,7 +178,6 @@ p {
 
 ![bg right height:500px](./assets/radar/beamsteering.png)
 
-
 ----
 
 <video src="./assets/radar/radar_viz.mp4" height="600" style="display:block;margin:auto;" controls></video>
@@ -193,14 +192,10 @@ p {
 TI AWR6843ISK - Michael
 -->
 
-
 ----
 
 # Datenverarbeitung & Aufbereitung
  
-<div class="columns">
-<div>
-
 - Pi Zero als Brücke zwischen Radar und Pi Pico
 - Verarbeitet Radardaten in Echtzeit
 - Kann Daten aufzeichnen und später wieder mit einstellbarer Frequenz abspielen
@@ -354,6 +349,19 @@ typedef struct {
 
 </div>
 </div>
+
+----
+
+# Visuelle Darstellung ─ MemLCD 
+
+![height:400px](./assets/gui/gui.jpeg)
+
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
 
 ----
 
