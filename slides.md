@@ -75,6 +75,20 @@ header {
 Noch offen
 -->
 
+---- 
+
+![height:100%](./intro.gif)
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
+
+<!--
+Noch offen
+-->
+
 ----
 
 # Einführung & Projektziel
