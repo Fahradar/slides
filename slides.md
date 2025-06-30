@@ -195,6 +195,9 @@ TI AWR6843ISK - Michael
 ----
 
 # Datenverarbeitung & Aufbereitung
+
+<div class="columns">
+<div>
  
 - Pi Zero als Brücke zwischen Radar und Pi Pico
 - Verarbeitet Radardaten in Echtzeit
