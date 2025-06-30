@@ -130,9 +130,15 @@ Radar - **Ra**dio **D**etection **a**nd **R**anging
 
 ----
 
-# Aufbau eines Radars - Unser Radar
+# Aufbau eines Radars ─ Unser Radar
 
 ![height:500px](./assets/radar/blockdiagramm.png)
+
+<style scoped>
+p {
+    text-align: center;
+}
+</style>
 
 ----
 
@@ -157,6 +163,7 @@ Radar - **Ra**dio **D**etection **a**nd **R**anging
 - **MIMO** (Multiple Input Multiple Output): mehrere Sende- und Empfangsantennen für bessere Auflösung
 - **CFAR** (Constant False Alarm Rate): automatische Schwellenwertanpassung zur Objekterkennung
 - **Tracker**: Objektpersistenz und Punktwolken-Gruppierungen
+
 ![bg right height:500px](./assets/radar/beamsteering.png)
 
 <!--
@@ -174,21 +181,24 @@ Raspberry Pi Zero W - Benedikt
 ----
  
 
-# Firmware - Raspberry Pi Pico 2 W
-<!--
-Rasbperry Pi Pico 2 W - Leo
--->
+# Firmware ─ Raspberry Pi Pico 2 W
+
+<div class="columns">
+<div>
 
 **Zentrale Steuereinheit des Systems**
 
 - Empfängt aufbereitete Radar-Daten über USB
-- Kein Radar-Processing → reine Koordination
+- Kein Radar-Processing $\rightarrow$ reine Koordination
 - Verteilt Daten an Ausgabegeräte (Display & Haptik)
 
-**Datenfluss:**
-```
-Radar → Verarbeitung → USB → Pi Pico → Ausgabegeräte
-```
+</div>
+<div>
+
+![height:500px](./assets/firmware/dataflow.png)
+
+</div>
+</div>
 
 <!--
 Leo - 2.5 Min Firmware Präsentation
@@ -243,6 +253,9 @@ typedef struct {
 
 # Technische Umsetzung
 
+<div class="columns">
+<div>
+
 **USB-Kommunikation:**
 - Meldet sich als serielles CDC-Gerät an
 - Parst eingehende Objektlisten
@@ -252,17 +265,23 @@ typedef struct {
 - Nimmt komplette Objektliste entgegen
 - Leitet alle Objekte an Display weiter
 - Wählt nächstes Objekt für Haptik aus
+ 
+</div>
+<div>
 
 **Modulares Design:**
 - Klare Trennung der Verantwortlichkeiten
 - Einfache Erweiterung um neue Ausgabegeräte
 - Wartbarer, strukturierter Code
 
-**→ Effizienter Koordinator zwischen Radar-System und Benutzer-Interface**
+**$\rightarrow$ Effizienter Koordinator zwischen Radar-System und Benutzer-Interface**
+
+</div>
+</div>
 
 ----
 
-# Visuelle Darstellung 
+# Visuelle Darstellung ─ MemLCD 
 
 <!--
 MemLCD - Markus
@@ -293,7 +312,7 @@ void drv2605l_stop(drv2605l_t *drv);
 void drv2605l_rtp(drv2605l_t *drv, uint8_t rtp);
 ```
 
-`bool drv2605l_init(drv2605l_t *drv)`
+`bool drv2605l_init(drv2605l_t *drv)`:
 
 - Kalibrierungsfunktion für Closed-Loop (Autocalibration-Routine schlägt fehl!)
 - Frequenzbereiche **nicht** optimal! (150Hz - 300Hz)
@@ -317,13 +336,6 @@ void drv2605l_rtp(drv2605l_t *drv, uint8_t rtp);
 
 </div>
 </div>
-
-
-<style scoped>
-p {
-    text-align: center;
-}
-</style>
 
 ----
 
@@ -370,7 +382,6 @@ DRV2605L & Titan-Haptics TacHommer-Carlton - Chris
 ----
 
 # Demo
-
 
 <style scoped>
 h1 {
