@@ -198,6 +198,16 @@ TI AWR6843ISK - Michael
 
 # Datenverarbeitung & Aufbereitung
 
+- Radar-Pico Bridge auf Pi Zero
+- Konfiguration des Radars (Porterkennung)
+- TLV-Verarbeitung + Visualisierung
+- Scoring, Filterung der Objekte
+- Weiterleitung an Pico
+- Betriebsmodi
+  - Live
+  - Replay
+
+
 <!--
 Raspberry Pi Zero W - Benedikt
 -->
