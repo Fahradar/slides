@@ -378,7 +378,9 @@ p {
 - Check ob Aktualisierung fällig ist, und verlässt die Funktion vorzeitig, wenn nicht der Fall
 - Bildschirm (ohne Invertierungsebene) wird mit `memlcd_clear` gelöscht, bevor neue Objekte gezeichnet werden
 - Für jedes Obj. werden Pos., Breite und Höhe eines Rechtecks berechnet und auf dem Display sw Balken dargestellt
-- Die Höhe des Rechtecks hängt von der Geschw. des Objekts ab, wodurch eine visuelle Repräsentation der Bewegungsgeschwindigkeit entsteht.
+- Höhe und Breite der Rechtecke repräsentieren Geschwindigkeit und Breite aller erkannten Objekte
+    - Höhe: Beginnt an der erkannten Objektposition und weitet sich entsprechend Geschwindigkeit aus
+    - Breite: Beginnt beim ersten erkannten Objekt und endet beim Letzten
 
 </div>
 <div>
