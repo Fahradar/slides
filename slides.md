@@ -388,13 +388,9 @@ p {
 <div>
 
 - Bei der Initialisierung werden Gridlinien auf die Invertierungsebene gezeichnet
-- `gui_routine` aktualisiert grafische Benutzeroberfläche in regelmäßigen Abständen basierend auf Zeitstempel
 - Check ob Aktualisierung fällig ist, und verlässt die Funktion vorzeitig, wenn nicht der Fall
-- Bildschirm (ohne Invertierungsebene) wird mit `memlcd_clear` gelöscht, bevor neue Objekte gezeichnet werden
-- Für jedes Obj. werden Pos., Breite und Höhe eines Rechtecks berechnet und auf dem Display sw Balken dargestellt
+- Für jedes Obj. werden Pos., Breite und Höhe eines Rechtecks berechnet und auf dem Display dargestellt
 - Höhe und Breite der Rechtecke repräsentieren Geschwindigkeit und Breite aller erkannten Objekte
-    - Höhe: Beginnt an der erkannten Objektposition und weitet sich entsprechend Geschwindigkeit aus
-    - Breite: Beginnt beim ersten erkannten Objekt und endet beim Letzten
 
 </div>
 <div>
@@ -578,3 +574,15 @@ h1 {
     font-size: 25px;
 }
 </style>
+
+----
+
+![bg](./assets/system-overview-SemCon.png)
+
+
+<style scoped>
+header {
+    color: white;
+}
+</style>
+
